@@ -1,8 +1,8 @@
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
-        vector<int>nser(heights.size(),heights.size());
-        vector<int>nsel(heights.size(),-1);
+        vector<int>nser(heights.size());
+        vector<int>nsel(heights.size());
         stack<int>s;
         //nearest smaller element on right
         for(int i=0;i<heights.size();i++){//3 3
