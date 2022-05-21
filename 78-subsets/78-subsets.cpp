@@ -2,9 +2,9 @@
 
 class Solution {
 public:
-    // int setkthbit(int n,int k){
-    //     return ((1<<k)|n);
-    // }
+    int setkthbit(int n,int k){
+        return (((1<<k)|n)==n);
+    }
     vector<vector<int>> subsets(vector<int>& nums) {
         int n=nums.size();
         vector<vector<int>>ans;
@@ -13,12 +13,9 @@ public:
             if(i==0){ans.push_back(b);continue;}
             int temp=i;cout<<temp<<"\n";
             for(int j=0;j<n;j++){
-               
-                if(temp&1) b.push_back(nums[j]);
-                temp=temp>>1;
+               if(setkthbit(i,j)) b.push_back(nums[j]);
+                
             }
-            for(auto x:b)cout<<x<<" ";
-            cout<<"\n";
            ans.push_back(b);
         }
         return ans;
