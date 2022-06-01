@@ -8,7 +8,7 @@ public:
                 if(nums[j]&1)cnt++;
                  nums[j]=nums[j]>>1;
             }
-            if(cnt%3==1) ans+=(1<<i);
+            if(cnt%3!=0) ans+=(1<<i);
            
         }
         return ans;
