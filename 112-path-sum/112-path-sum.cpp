@@ -17,7 +17,7 @@ public:
     if(root->left==NULL and root->right==NULL){
         if(cursum+root->val==targetSum)
             ans=true;
-        exit;
+       
     }
      helper(root->left,cursum+(root)->val,targetSum);
      helper(root->right,cursum+(root)->val,targetSum);
