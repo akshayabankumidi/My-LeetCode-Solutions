@@ -6,7 +6,7 @@ public:
         temp=k;
         for(int i=0;i<nums.size();i++) {
             q.push(nums[i]);
-            if(q.size()>k) q.pop();
+           // if(q.size()>k) q.pop();
         }    
     } 
     int add(int val) {
