@@ -1,7 +1,8 @@
 class Solution {
 public:
  
-    struct comparator {
+    class comparator {
+        public:
         bool operator()(string &s1,string &s2) {
  
            if(s1.length()==s2.length()) {
