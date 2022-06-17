@@ -1,7 +1,4 @@
-class Solution {
-public:
- 
-    class comparator {
+class comparator {
         public:
         bool operator()(string &s1,string &s2) {
  
@@ -14,6 +11,11 @@ public:
             return s1.length()>s2.length();
         }
     };
+
+
+class Solution {
+public:
+ 
     string kthLargestNumber(vector<string>& nums, int k) {
       
         priority_queue<string,vector<string>,comparator>q;
