@@ -7,7 +7,7 @@ public:
         
            
   int n=s.size();
-        if(n==1)return s;
+        //if(n==1)return s;
       vector<vector<int>>dp(n , vector<int> (n));
         int cnt=1;
         for(int i=0;i<n;i++){
@@ -38,13 +38,13 @@ public:
                    end=j;
                }
            }
-                 if(end-start+1>ans){
+                 if((end-start)+1>=ans){
                      ans=end-start+1;
                      p=start,q=end;
                  }
             
         }
-        
+        cout<<p<<" "<<ans<<'\n';
       string temp=s.substr(p,ans);
         return temp;
         
