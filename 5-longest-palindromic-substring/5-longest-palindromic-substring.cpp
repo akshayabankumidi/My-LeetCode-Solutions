@@ -4,56 +4,50 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-            ll n=s.size();
-//two cases
-//case1: palindrome with odd length
-//fix middle char 
-//compare leftchar and rightchar as long as they r same
-ll ans1=0;
-string news="";
-
-fo(i,1,n-1){//babad
-    ll p=i-1,q=i+1,cnt=0;
-    string left="",right="";
-    while( p>=0 && q<n &&s[p]==s[q]){
-       left+=s[p];
-       right+=s[q];
-        cnt+=2;p--;q++;
-    }cnt++;
-    if(ans1<cnt){
-         reverse(all(left));
-        ans1=cnt;news=left+s[i]+right;
-    }
-}//debug(ans1)
-//case2:palindrome with even length
-//same like odd length 
-//here we need not to fix middle char
-
-
-if(s.size()<3){
+        
+           
+  int n=s.size();
+        if(n==1)return s;
+      vector<vector<int>>dp(n , vector<int> (n));
+        int cnt=1;
+        for(int i=0;i<n;i++){
+            dp[i][i]=1;
+           if(i<n-1 && s[i]==s[i+1]){dp[i][i+1]=1;}
+       }
     
-if(s.size()==1)return s;
-else{
-    if(s[0]==s[1])return s;
-    else {
-    string temp="";temp+=s[0];return temp;
-         }
-}
-}
-fo(i,0,n-1){//aeefeeg
-    ll p=i,q=i+1,cnt=0;
-    string left="",right="";
-    while(p>=0 &&q<n&&s[p]==s[q]){
-       right+=s[p];cnt+=2;p--;q++;
-    }
-    if(ans1<cnt){
-        ans1=cnt;
-        left=right;reverse(all(left));
-        news=left+right;
-    }
-  
-}
-return news;  
+        
+        for(int i=2;i<n;i++){
+            int r=0,c=i;
+            while(r<n and c<n){
+                if(s[r]==s[c]){
+                    dp[r][c]=dp[r+1][c-1];
+                  
+                }
+                r++;c++;
+            }
+          
+        }
+        int start,end,p,q,ans=1;
+             for(int i=0;i<n;i++){
+                 start=i,end=i;
+        
+           for(int j=i;j<n;j++)
+           {
+               
+               if(dp[i][j]==1){
+                   end=j;
+               }
+           }
+                 if(end-start+1>ans){
+                     ans=end-start+1;
+                     p=start,q=end;
+                 }
+            
+        }
+        
+      string temp=s.substr(p,ans);
+        return temp;
+        
         
         
 }
