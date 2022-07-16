@@ -4,7 +4,7 @@ public:
         priority_queue<pair<int,int>>MaxH;
         vector<int>ans;
         int cnt=0,c=0;
-        if(k==1)return nums;
+       // if(k==1)return nums;
         for(int i=0;i<nums.size();i++){
             cnt++;MaxH.push({nums[i],i});
             if(cnt==k){
