@@ -32,7 +32,7 @@ public:
         for(auto x: vec)cout<<x<<" ";cout<<"\n";
         fo(i,0,sz(s)){
               int x=s[i]-'a';
-              int y=(x+vec[i]%26+26)%26;
+              int y=(x%26+vec[i]%26+26)%26;
               ans+=mp[y];
            
            
