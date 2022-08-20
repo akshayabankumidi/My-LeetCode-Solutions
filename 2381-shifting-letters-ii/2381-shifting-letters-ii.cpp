@@ -12,9 +12,6 @@ class Solution {
 public:
     string shiftingLetters(string s, vector<vector<int>>& shifts) {
         vector<int>vec(sz(s)+1);
-        map<char,int>mp;
-        char chr='a';
-        fo(i,0,26){mp[i]=chr;chr++;}
         fo(i,0,sz(shifts)){
             if(shifts[i][2]==0){
               vec[shifts[i][0]]--;
@@ -32,8 +29,9 @@ public:
         for(auto x: vec)cout<<x<<" ";cout<<"\n";
         fo(i,0,sz(s)){
               int x=s[i]-'a';
-              int y=(x%26+vec[i]%26+26)%26;
-              ans+=mp[y];
+              int y=(x+vec[i])%26;
+              int rem=(26+y)%26;rem+=97;
+              ans+=static_cast<char>(rem);
            
            
         }
